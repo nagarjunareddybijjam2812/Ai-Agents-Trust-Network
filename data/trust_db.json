@@ -1,0 +1,2846 @@
+{
+  "agents": [
+    {
+      "id": "gemini_agent",
+      "name": "Gemini Answer Agent",
+      "provider": "Google GenAI",
+      "model": "gemini-3.8-flash",
+      "enabled": true,
+      "state": "AVAILABLE",
+      "stateReason": "Configured with server-side API Key",
+      "historicalSampleSize": 24,
+      "historicalAccuracyEstimate": 87.5,
+      "costPer1kTokens": 0.0001
+    },
+    {
+      "id": "openai_agent",
+      "name": "OpenAI Answer Agent",
+      "provider": "OpenAI",
+      "model": "gpt-4o",
+      "enabled": true,
+      "state": "TEST_DOUBLE",
+      "stateReason": "Operating in High-Fidelity Test Double mode (OPENAI_API_KEY unconfigured)",
+      "historicalSampleSize": 24,
+      "historicalAccuracyEstimate": 83.3,
+      "costPer1kTokens": 0.0025
+    },
+    {
+      "id": "evidence_agent",
+      "name": "Evidence Retrieval Agent",
+      "provider": "Multi-Source Crawler & Grounding",
+      "model": "heuristic-retrieval-v2",
+      "enabled": true,
+      "state": "AVAILABLE",
+      "stateReason": "Active with SSRF filters, academic archives, and web endpoints",
+      "historicalSampleSize": 30,
+      "historicalAccuracyEstimate": 93.3
+    },
+    {
+      "id": "consistency_agent",
+      "name": "Consistency & Contradiction Agent",
+      "provider": "Semantic Claim Comparator",
+      "model": "claim-matrix-v1",
+      "enabled": true,
+      "state": "AVAILABLE",
+      "stateReason": "Deterministic and semantic cross-claim analyzer active",
+      "historicalSampleSize": 30,
+      "historicalAccuracyEstimate": 90
+    },
+    {
+      "id": "trust_evaluator",
+      "name": "Trust Engine (Beta-Binomial & 4D)",
+      "provider": "Mathematical Trust Kernel",
+      "model": "beta-binomial-4d",
+      "enabled": true,
+      "state": "AVAILABLE",
+      "stateReason": "Calibrated statistical evaluator online",
+      "historicalSampleSize": 48,
+      "historicalAccuracyEstimate": 91.7
+    },
+    {
+      "id": "final_decision_agent",
+      "name": "Final Decision & Policy Agent",
+      "provider": "Constrained Synthesis Engine",
+      "model": "evidence-governed-synthesis",
+      "enabled": true,
+      "state": "AVAILABLE",
+      "stateReason": "Policy-enforced abstention gate active",
+      "historicalSampleSize": 48,
+      "historicalAccuracyEstimate": 95.8
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-1791537261040-0eym6",
+      "text": "Will Artificial General Intelligence (AGI) be achieved on October 14, 2027?",
+      "createdAt": "2026-10-09T09:14:21.040Z"
+    },
+    {
+      "id": "q-1791537232102-4dn94",
+      "text": "Is the Great Wall of China visible from the Moon with the naked eye?",
+      "createdAt": "2026-10-09T09:13:52.102Z"
+    },
+    {
+      "id": "q-1791537211355-q6lke",
+      "text": "What is the difference between supervised and unsupervised learning?",
+      "createdAt": "2026-10-09T09:13:31.355Z"
+    }
+  ],
+  "workflowRuns": [
+    {
+      "id": "test-run-1791537430005",
+      "questionId": "q-test-1",
+      "question": "What is the speed of light in a vacuum in m/s?",
+      "status": "COMPLETED",
+      "decisionStatus": "NEEDS_REVIEW",
+      "decisionRationale": "Material uncertainty or incomplete evidence verification identified. Trust score: 75/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).",
+      "finalAnswer": "### Provisional Answer (Review Required)\n\nAnalyzing the inquiry: \"What is the speed of light in a vacuum in m/s?\". From established empirical principles, rigorous answer formulation requires separating direct observations from deductive extrapolation. Primary factors include verified boundary conditions, observational reproducibility, and documented experimental constraints.\n\n> **Notice**: This response has been flagged for human review. Material uncertainty or incomplete evidence verification identified. Trust score: 75/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).\n\n#### Verified Factual Points\n- **Verified**: The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.\n\n#### Authoritative Evidence\n- [NIST PML Fundamental Physical Constants]: *NIST Physics Reference: Speed of Light in Vacuum Constant (c)* (https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light)\n- [Wikipedia Encyclopedia]: *Speed of light - Wikipedia Entry* (https://en.wikipedia.org/wiki/Speed_of_light)\n- [Wikipedia Encyclopedia]: *Faster-than-light - Wikipedia Entry* (https://en.wikipedia.org/wiki/Faster-than-light)",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "",
+          "claims": [],
+          "uncertaintyDeclared": "High (Execution Error)",
+          "selfReportedConfidence": 0,
+          "status": "FAILED",
+          "latencyMs": 16927,
+          "error": "{\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "Analyzing the inquiry: \"What is the speed of light in a vacuum in m/s?\". From established empirical principles, rigorous answer formulation requires separating direct observations from deductive extrapolation. Primary factors include verified boundary conditions, observational reproducibility, and documented experimental constraints.",
+          "claims": [
+            {
+              "id": "claim-openai-1791537430659-1",
+              "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 80
+            },
+            {
+              "id": "claim-openai-1791537430659-2",
+              "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+              "category": "assumption",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 85
+            }
+          ],
+          "uncertaintyDeclared": "Empirical verification requires matching claims against retrieved primary literature.",
+          "selfReportedConfidence": 80,
+          "status": "SUCCESS",
+          "latencyMs": 651,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light",
+          "title": "NIST Physics Reference: Speed of Light in Vacuum Constant (c)",
+          "publisher": "NIST PML Fundamental Physical Constants",
+          "excerpt": "The speed of light in vacuum, denoted as c, is an exact universal physical constant defined as 299,792,458 metres per second (m/s). It forms the foundational basis for the SI definition of the metre.",
+          "retrievalTimestamp": "2026-10-09T09:17:26.937Z",
+          "publicationDate": "2024-11-20",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 99,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+          "title": "Speed of light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "materials like glass or water; its highest speed is in a vacuum. The speed of light in vacuum is a universal physical constant denoted c (in ISO and IEC",
+          "retrievalTimestamp": "2026-10-09T09:17:27.371Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Faster-than-light",
+          "title": "Faster-than-light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "in vacuum (c). The special theory of relativity implies that only particles with zero rest mass (i.e., photons) may travel at the speed of light, and",
+          "retrievalTimestamp": "2026-10-09T09:17:27.371Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light",
+          "title": "NIST Physics Reference: Speed of Light in Vacuum Constant (c)",
+          "publisher": "NIST PML Fundamental Physical Constants",
+          "excerpt": "The speed of light in vacuum, denoted as c, is an exact universal physical constant defined as 299,792,458 metres per second (m/s). It forms the foundational basis for the SI definition of the metre.",
+          "retrievalTimestamp": "2026-10-09T09:17:27.376Z",
+          "publicationDate": "2024-11-20",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 99,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Faster-than-light",
+          "title": "Faster-than-light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "in vacuum (c). The special theory of relativity implies that only particles with zero rest mass (i.e., photons) may travel at the speed of light, and",
+          "retrievalTimestamp": "2026-10-09T09:17:27.825Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Foucault's_measurements_of_the_speed_of_light",
+          "title": "Foucault's measurements of the speed of light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "rotating mirror to perform a differential measurement of the speed of light in water versus its speed in air. Together with a similar measurement by Hippolyte",
+          "retrievalTimestamp": "2026-10-09T09:17:27.825Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-openai-1791537430659-1",
+          "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-wiki-2",
+            "src-wiki-3",
+            "src-curated-1",
+            "src-wiki-2"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 80,
+          "rationale": "Corroborated by 5 independent sources with high authority."
+        },
+        {
+          "id": "claim-openai-1791537430659-2",
+          "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+          "category": "assumption",
+          "agentId": "openai_agent",
+          "verificationStatus": "UNVERIFIED",
+          "supportingEvidenceIds": [],
+          "contradictingEvidenceIds": [],
+          "confidence": 85,
+          "rationale": "No direct corroborating evidence discovered in retrieved records."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 75,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:17:27.825Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 69,
+            "domainAuthorityAverage": 84,
+            "corroborationFactor": 50,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 6 accessible sources (average domain authority: 84/100, claim support ratio: 50%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 90,
+            "agreementRatio": 0.9,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 90/100. Agreement ratio: 90%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (69), Consistency (90), Calibration (87)."
+      },
+      "reviewIterations": 1,
+      "events": [
+        {
+          "id": "evt-1791537430007-1",
+          "runId": "test-run-1791537430005",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:10.007Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791537430007-2",
+          "runId": "test-run-1791537430005",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:10.007Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791537430007-3",
+          "runId": "test-run-1791537430005",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:10.007Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791537446935-4",
+          "runId": "test-run-1791537430005",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:26.935Z",
+          "durationMs": 16928,
+          "details": {
+            "message": "Candidate agents executed in 16928ms",
+            "successfulAgents": [
+              "openai_agent"
+            ],
+            "failedAgents": [
+              "gemini_agent"
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537446937-5",
+          "runId": "test-run-1791537430005",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:26.937Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791537447371-6",
+          "runId": "test-run-1791537430005",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:27.371Z",
+          "durationMs": 435,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791537447373-7",
+          "runId": "test-run-1791537430005",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:27.373Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791537447373-8",
+          "runId": "test-run-1791537430005",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:27.373Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluated 2 claims; found 0 contradictions",
+            "agreementRatio": 0.85,
+            "disagreementCount": 0,
+            "supportedClaims": 1
+          }
+        },
+        {
+          "id": "evt-1791537447375-9",
+          "runId": "test-run-1791537430005",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:27.375Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791537447375-10",
+          "runId": "test-run-1791537430005",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:27.375Z",
+          "durationMs": 1,
+          "details": {
+            "message": "Trust score synthesized: 76/100 (FULL coverage: 100%)",
+            "overallScore": 76,
+            "historicalScore": 69,
+            "evidenceScore": 69,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791537447376-11",
+          "runId": "test-run-1791537430005",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:17:27.376Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791537447376-12",
+          "runId": "test-run-1791537430005",
+          "stage": "bounded_review",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:27.376Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initiating bounded review iteration 1/1 to resolve material uncertainty"
+          }
+        },
+        {
+          "id": "evt-1791537447825-13",
+          "runId": "test-run-1791537430005",
+          "stage": "bounded_review",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:27.825Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Bounded review pass completed. Updated decision: NEEDS_REVIEW",
+            "updatedStatus": "NEEDS_REVIEW"
+          }
+        },
+        {
+          "id": "evt-1791537447825-14",
+          "runId": "test-run-1791537430005",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:27.825Z",
+          "durationMs": 449,
+          "details": {
+            "message": "Decision finalized as NEEDS_REVIEW",
+            "decisionStatus": "NEEDS_REVIEW",
+            "unresolvedIssues": [
+              "Low claim support ratio: 50.0% of claims verified (minimum required: 65%)."
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537447827-15",
+          "runId": "test-run-1791537430005",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:17:27.827Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791537451748-16",
+          "runId": "test-run-1791537430005",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:31.748Z",
+          "durationMs": 3921,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791537451750-17",
+          "runId": "test-run-1791537430005",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:17:31.750Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "NEEDS_REVIEW",
+            "overallTrustScore": 75
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:17:10.005Z",
+      "completedAt": "2026-10-09T09:17:31.750Z",
+      "totalLatencyMs": 21745
+    },
+    {
+      "id": "test-run-1791537398318",
+      "questionId": "q-test-1",
+      "question": "What is the speed of light in a vacuum in m/s?",
+      "status": "COMPLETED",
+      "decisionStatus": "NEEDS_REVIEW",
+      "decisionRationale": "Material uncertainty or incomplete evidence verification identified. Trust score: 75/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).",
+      "finalAnswer": "### Provisional Answer (Review Required)\n\nAnalyzing the inquiry: \"What is the speed of light in a vacuum in m/s?\". From established empirical principles, rigorous answer formulation requires separating direct observations from deductive extrapolation. Primary factors include verified boundary conditions, observational reproducibility, and documented experimental constraints.\n\n> **Notice**: This response has been flagged for human review. Material uncertainty or incomplete evidence verification identified. Trust score: 75/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).\n\n#### Verified Factual Points\n- **Verified**: The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.\n\n#### Authoritative Evidence\n- [NIST PML Fundamental Physical Constants]: *NIST Physics Reference: Speed of Light in Vacuum Constant (c)* (https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light)\n- [Wikipedia Encyclopedia]: *Speed of light - Wikipedia Entry* (https://en.wikipedia.org/wiki/Speed_of_light)\n- [Wikipedia Encyclopedia]: *Faster-than-light - Wikipedia Entry* (https://en.wikipedia.org/wiki/Faster-than-light)",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "",
+          "claims": [],
+          "uncertaintyDeclared": "High (Execution Error)",
+          "selfReportedConfidence": 0,
+          "status": "FAILED",
+          "latencyMs": 7708,
+          "error": "{\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "Analyzing the inquiry: \"What is the speed of light in a vacuum in m/s?\". From established empirical principles, rigorous answer formulation requires separating direct observations from deductive extrapolation. Primary factors include verified boundary conditions, observational reproducibility, and documented experimental constraints.",
+          "claims": [
+            {
+              "id": "claim-openai-1791537398983-1",
+              "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 80
+            },
+            {
+              "id": "claim-openai-1791537398983-2",
+              "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+              "category": "assumption",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 85
+            }
+          ],
+          "uncertaintyDeclared": "Empirical verification requires matching claims against retrieved primary literature.",
+          "selfReportedConfidence": 80,
+          "status": "SUCCESS",
+          "latencyMs": 652,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light",
+          "title": "NIST Physics Reference: Speed of Light in Vacuum Constant (c)",
+          "publisher": "NIST PML Fundamental Physical Constants",
+          "excerpt": "The speed of light in vacuum, denoted as c, is an exact universal physical constant defined as 299,792,458 metres per second (m/s). It forms the foundational basis for the SI definition of the metre.",
+          "retrievalTimestamp": "2026-10-09T09:16:46.042Z",
+          "publicationDate": "2024-11-20",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 99,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+          "title": "Speed of light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "materials like glass or water; its highest speed is in a vacuum. The speed of light in vacuum is a universal physical constant denoted c (in ISO and IEC",
+          "retrievalTimestamp": "2026-10-09T09:16:46.485Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Faster-than-light",
+          "title": "Faster-than-light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "in vacuum (c). The special theory of relativity implies that only particles with zero rest mass (i.e., photons) may travel at the speed of light, and",
+          "retrievalTimestamp": "2026-10-09T09:16:46.485Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light",
+          "title": "NIST Physics Reference: Speed of Light in Vacuum Constant (c)",
+          "publisher": "NIST PML Fundamental Physical Constants",
+          "excerpt": "The speed of light in vacuum, denoted as c, is an exact universal physical constant defined as 299,792,458 metres per second (m/s). It forms the foundational basis for the SI definition of the metre.",
+          "retrievalTimestamp": "2026-10-09T09:16:46.490Z",
+          "publicationDate": "2024-11-20",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 99,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Faster-than-light",
+          "title": "Faster-than-light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "in vacuum (c). The special theory of relativity implies that only particles with zero rest mass (i.e., photons) may travel at the speed of light, and",
+          "retrievalTimestamp": "2026-10-09T09:16:47.046Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Foucault's_measurements_of_the_speed_of_light",
+          "title": "Foucault's measurements of the speed of light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "rotating mirror to perform a differential measurement of the speed of light in water versus its speed in air. Together with a similar measurement by Hippolyte",
+          "retrievalTimestamp": "2026-10-09T09:16:47.046Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-openai-1791537398983-1",
+          "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-wiki-2",
+            "src-wiki-3",
+            "src-curated-1",
+            "src-wiki-2"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 80,
+          "rationale": "Corroborated by 5 independent sources with high authority."
+        },
+        {
+          "id": "claim-openai-1791537398983-2",
+          "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+          "category": "assumption",
+          "agentId": "openai_agent",
+          "verificationStatus": "UNVERIFIED",
+          "supportingEvidenceIds": [],
+          "contradictingEvidenceIds": [],
+          "confidence": 85,
+          "rationale": "No direct corroborating evidence discovered in retrieved records."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 75,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:16:47.047Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 69,
+            "domainAuthorityAverage": 84,
+            "corroborationFactor": 50,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 6 accessible sources (average domain authority: 84/100, claim support ratio: 50%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 90,
+            "agreementRatio": 0.9,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 90/100. Agreement ratio: 90%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (69), Consistency (90), Calibration (87)."
+      },
+      "reviewIterations": 1,
+      "events": [
+        {
+          "id": "evt-1791537398330-1",
+          "runId": "test-run-1791537398318",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:38.330Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791537398330-2",
+          "runId": "test-run-1791537398318",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:38.330Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791537398330-3",
+          "runId": "test-run-1791537398318",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:38.330Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791537406039-4",
+          "runId": "test-run-1791537398318",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:46.039Z",
+          "durationMs": 7709,
+          "details": {
+            "message": "Candidate agents executed in 7709ms",
+            "successfulAgents": [
+              "openai_agent"
+            ],
+            "failedAgents": [
+              "gemini_agent"
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537406042-5",
+          "runId": "test-run-1791537398318",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:46.042Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791537406485-6",
+          "runId": "test-run-1791537398318",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:46.485Z",
+          "durationMs": 443,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791537406486-7",
+          "runId": "test-run-1791537398318",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:46.486Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791537406486-8",
+          "runId": "test-run-1791537398318",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:46.486Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluated 2 claims; found 0 contradictions",
+            "agreementRatio": 0.85,
+            "disagreementCount": 0,
+            "supportedClaims": 1
+          }
+        },
+        {
+          "id": "evt-1791537406488-9",
+          "runId": "test-run-1791537398318",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:46.488Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791537406488-10",
+          "runId": "test-run-1791537398318",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:46.488Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Trust score synthesized: 76/100 (FULL coverage: 100%)",
+            "overallScore": 76,
+            "historicalScore": 69,
+            "evidenceScore": 69,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791537406489-11",
+          "runId": "test-run-1791537398318",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:16:46.489Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791537406489-12",
+          "runId": "test-run-1791537398318",
+          "stage": "bounded_review",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:46.489Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initiating bounded review iteration 1/1 to resolve material uncertainty"
+          }
+        },
+        {
+          "id": "evt-1791537407047-13",
+          "runId": "test-run-1791537398318",
+          "stage": "bounded_review",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:47.047Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Bounded review pass completed. Updated decision: NEEDS_REVIEW",
+            "updatedStatus": "NEEDS_REVIEW"
+          }
+        },
+        {
+          "id": "evt-1791537407047-14",
+          "runId": "test-run-1791537398318",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:47.047Z",
+          "durationMs": 558,
+          "details": {
+            "message": "Decision finalized as NEEDS_REVIEW",
+            "decisionStatus": "NEEDS_REVIEW",
+            "unresolvedIssues": [
+              "Low claim support ratio: 50.0% of claims verified (minimum required: 65%)."
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537407048-15",
+          "runId": "test-run-1791537398318",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:16:47.048Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791537412237-16",
+          "runId": "test-run-1791537398318",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:52.237Z",
+          "durationMs": 5189,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791537412238-17",
+          "runId": "test-run-1791537398318",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:16:52.238Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "NEEDS_REVIEW",
+            "overallTrustScore": 75
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:16:38.327Z",
+      "completedAt": "2026-10-09T09:16:52.238Z",
+      "totalLatencyMs": 13911
+    },
+    {
+      "id": "run-1791537261041-b141f",
+      "questionId": "q-1791537261040-0eym6",
+      "question": "Will Artificial General Intelligence (AGI) be achieved on October 14, 2027?",
+      "status": "COMPLETED",
+      "decisionStatus": "NEEDS_REVIEW",
+      "decisionRationale": "Material uncertainty or incomplete evidence verification identified. Trust score: 74/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).",
+      "finalAnswer": "### Provisional Answer (Review Required)\n\nThere is no scientific consensus or verifiable evidence indicating that Artificial General Intelligence (AGI) will arrive by a specific date. Projections from leading AI researchers, forecasters, and industry laboratories diverge widely from 3 to 30+ years, and definitions of AGI itself vary substantially across the literature.\n\n> **Notice**: This response has been flagged for human review. Material uncertainty or incomplete evidence verification identified. Trust score: 74/100 (Threshold: 70). Specific review points: Low claim support ratio: 50.0% of claims verified (minimum required: 65%).\n\n#### Verified Factual Points\n- **Verified**: Exact future arrival dates for AGI cannot be verified with empirical certainty.\n\n#### Authoritative Evidence\n- [arXiv Artificial Intelligence Archive]: *Forecasting Artificial General Intelligence: Epistemic Uncertainty and Methodological Divergence* (https://arxiv.org/abs/2403.00192)\n- [Wikipedia Encyclopedia]: *Artificial general intelligence - Wikipedia Entry* (https://en.wikipedia.org/wiki/Artificial_general_intelligence)\n- [Wikipedia Encyclopedia]: *Existential risk from artificial intelligence - Wikipedia Entry* (https://en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence)",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "",
+          "claims": [],
+          "uncertaintyDeclared": "High (Execution Error)",
+          "selfReportedConfidence": 0,
+          "status": "FAILED",
+          "latencyMs": 33732,
+          "error": "{\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "There is no scientific consensus or verifiable evidence indicating that Artificial General Intelligence (AGI) will arrive by a specific date. Projections from leading AI researchers, forecasters, and industry laboratories diverge widely from 3 to 30+ years, and definitions of AGI itself vary substantially across the literature.",
+          "claims": [
+            {
+              "id": "claim-openai-1791537261693-1",
+              "claimText": "Exact future arrival dates for AGI cannot be verified with empirical certainty.",
+              "category": "assumption",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 88
+            },
+            {
+              "id": "claim-openai-1791537261693-2",
+              "claimText": "Expert timeline projections show large variance due to varying definitions and unknown scaling limits.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 90
+            }
+          ],
+          "uncertaintyDeclared": "Extremely high epistemic uncertainty regarding long-term AI trajectories.",
+          "selfReportedConfidence": 70,
+          "status": "SUCCESS",
+          "latencyMs": 650,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://arxiv.org/abs/2403.00192",
+          "title": "Forecasting Artificial General Intelligence: Epistemic Uncertainty and Methodological Divergence",
+          "publisher": "arXiv Artificial Intelligence Archive",
+          "excerpt": "Expert surveys on AGI timelines show substantial epistemic dispersion ranging from a few years to multiple decades. Lacking an empirical definition or testable consensus criteria, exact dates (such as specific years or days) cannot be empirically verified and reflect subjective extrapolation rather than established fact.",
+          "retrievalTimestamp": "2026-10-09T09:14:54.778Z",
+          "publicationDate": "2025-06-22",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 88,
+          "reliabilityScore": 89,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (88/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Artificial_general_intelligence",
+          "title": "Artificial general intelligence - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "Artificial general intelligence (AGI) is a hypothetical type of artificial intelligence that matches or surpasses human capabilities across virtually",
+          "retrievalTimestamp": "2026-10-09T09:14:55.188Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence",
+          "title": "Existential risk from artificial intelligence - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "of viruses that are both highly transmissible and lethal. Artificial general intelligence (AGI) is typically defined as a system that performs at least",
+          "retrievalTimestamp": "2026-10-09T09:14:55.188Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-curated-1",
+          "url": "https://arxiv.org/abs/2403.00192",
+          "title": "Forecasting Artificial General Intelligence: Epistemic Uncertainty and Methodological Divergence",
+          "publisher": "arXiv Artificial Intelligence Archive",
+          "excerpt": "Expert surveys on AGI timelines show substantial epistemic dispersion ranging from a few years to multiple decades. Lacking an empirical definition or testable consensus criteria, exact dates (such as specific years or days) cannot be empirically verified and reflect subjective extrapolation rather than established fact.",
+          "retrievalTimestamp": "2026-10-09T09:14:55.191Z",
+          "publicationDate": "2025-06-22",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 88,
+          "reliabilityScore": 89,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (88/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Artificial_general_intelligence",
+          "title": "Artificial general intelligence - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "Artificial general intelligence (AGI) is a hypothetical type of artificial intelligence that matches or surpasses human capabilities across virtually",
+          "retrievalTimestamp": "2026-10-09T09:14:55.638Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence",
+          "title": "Existential risk from artificial intelligence - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "of viruses that are both highly transmissible and lethal. Artificial general intelligence (AGI) is typically defined as a system that performs at least",
+          "retrievalTimestamp": "2026-10-09T09:14:55.638Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-openai-1791537261693-1",
+          "claimText": "Exact future arrival dates for AGI cannot be verified with empirical certainty.",
+          "category": "assumption",
+          "agentId": "openai_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 88,
+          "rationale": "Corroborated by 2 independent sources with high authority."
+        },
+        {
+          "id": "claim-openai-1791537261693-2",
+          "claimText": "Expert timeline projections show large variance due to varying definitions and unknown scaling limits.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "UNVERIFIED",
+          "supportingEvidenceIds": [],
+          "contradictingEvidenceIds": [],
+          "confidence": 90,
+          "rationale": "No direct corroborating evidence discovered in retrieved records."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 74,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:14:55.638Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 67,
+            "domainAuthorityAverage": 81,
+            "corroborationFactor": 50,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 6 accessible sources (average domain authority: 81/100, claim support ratio: 50%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 90,
+            "agreementRatio": 0.9,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 90/100. Agreement ratio: 90%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (67), Consistency (90), Calibration (87)."
+      },
+      "reviewIterations": 1,
+      "events": [
+        {
+          "id": "evt-1791537261043-1",
+          "runId": "run-1791537261041-b141f",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:21.043Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791537261043-2",
+          "runId": "run-1791537261041-b141f",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:21.043Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791537261043-3",
+          "runId": "run-1791537261041-b141f",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:21.043Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791537294776-4",
+          "runId": "run-1791537261041-b141f",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:54.776Z",
+          "durationMs": 33732,
+          "details": {
+            "message": "Candidate agents executed in 33732ms",
+            "successfulAgents": [
+              "openai_agent"
+            ],
+            "failedAgents": [
+              "gemini_agent"
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537294777-5",
+          "runId": "run-1791537261041-b141f",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:54.777Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791537295188-6",
+          "runId": "run-1791537261041-b141f",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:55.188Z",
+          "durationMs": 411,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791537295189-7",
+          "runId": "run-1791537261041-b141f",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:55.189Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791537295189-8",
+          "runId": "run-1791537261041-b141f",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:55.189Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluated 2 claims; found 0 contradictions",
+            "agreementRatio": 0.85,
+            "disagreementCount": 0,
+            "supportedClaims": 0
+          }
+        },
+        {
+          "id": "evt-1791537295190-9",
+          "runId": "run-1791537261041-b141f",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:55.190Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791537295190-10",
+          "runId": "run-1791537261041-b141f",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:55.190Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Trust score synthesized: 72/100 (FULL coverage: 100%)",
+            "overallScore": 72,
+            "historicalScore": 69,
+            "evidenceScore": 56,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791537295191-11",
+          "runId": "run-1791537261041-b141f",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:14:55.191Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791537295191-12",
+          "runId": "run-1791537261041-b141f",
+          "stage": "bounded_review",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:55.191Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initiating bounded review iteration 1/1 to resolve material uncertainty"
+          }
+        },
+        {
+          "id": "evt-1791537295638-13",
+          "runId": "run-1791537261041-b141f",
+          "stage": "bounded_review",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:55.638Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Bounded review pass completed. Updated decision: NEEDS_REVIEW",
+            "updatedStatus": "NEEDS_REVIEW"
+          }
+        },
+        {
+          "id": "evt-1791537295638-14",
+          "runId": "run-1791537261041-b141f",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:55.638Z",
+          "durationMs": 447,
+          "details": {
+            "message": "Decision finalized as NEEDS_REVIEW",
+            "decisionStatus": "NEEDS_REVIEW",
+            "unresolvedIssues": [
+              "Low claim support ratio: 50.0% of claims verified (minimum required: 65%)."
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537295639-15",
+          "runId": "run-1791537261041-b141f",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:14:55.639Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791537307884-16",
+          "runId": "run-1791537261041-b141f",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:15:07.884Z",
+          "durationMs": 12245,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791537307885-17",
+          "runId": "run-1791537261041-b141f",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:15:07.885Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "NEEDS_REVIEW",
+            "overallTrustScore": 74
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:14:21.041Z",
+      "completedAt": "2026-10-09T09:15:07.885Z",
+      "totalLatencyMs": 46844
+    },
+    {
+      "id": "run-1791537232103-m7kjt",
+      "questionId": "q-1791537232102-4dn94",
+      "question": "Is the Great Wall of China visible from the Moon with the naked eye?",
+      "status": "COMPLETED",
+      "decisionStatus": "ACCEPTED",
+      "decisionRationale": "Verified according to configured trust policy. Trust score: 79/100 exceeds threshold (70), 100% of claims corroborated by authoritative evidence, with zero unresolved contradictions.",
+      "finalAnswer": "### Verified Answer\n\nThe Great Wall of China is not visible from the Moon with the unaided eye. The Moon is approximately 384,400 kilometers away, and the Great Wall has an average width of only 5 to 9 meters. Resolving it from lunar distance with human visual acuity would require angular resolution far exceeding the limits of the human eye. Apollo astronauts confirmed that no artificial structures are discernible from lunar orbit without magnification.\n\n#### Verified Factual Points\n- **Verified**: The Great Wall of China cannot be seen from the Moon without optical magnification.\n- **Partially Corroborated**: The average width of the Great Wall is roughly 5 to 9 meters, which is too narrow for human eye resolution at 384,400 km.\n\n#### Authoritative Evidence\n- [NASA Astronautics Archive]: *NASA Observational Fact Sheet: Is China's Great Wall Visible from Space?* (https://www.nasa.gov/vision/space/workinginspace/great_wall.html)\n- [Wikipedia Encyclopedia]: *Great Wall of China - Wikipedia Entry* (https://en.wikipedia.org/wiki/Great_Wall_of_China)\n- [Wikipedia Encyclopedia]: *Ming Great Wall - Wikipedia Entry* (https://en.wikipedia.org/wiki/Ming_Great_Wall)",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "",
+          "claims": [],
+          "uncertaintyDeclared": "High (Execution Error)",
+          "selfReportedConfidence": 0,
+          "status": "FAILED",
+          "latencyMs": 3893,
+          "error": "{\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "The Great Wall of China is not visible from the Moon with the unaided eye. The Moon is approximately 384,400 kilometers away, and the Great Wall has an average width of only 5 to 9 meters. Resolving it from lunar distance with human visual acuity would require angular resolution far exceeding the limits of the human eye. Apollo astronauts confirmed that no artificial structures are discernible from lunar orbit without magnification.",
+          "claims": [
+            {
+              "id": "claim-openai-1791537232755-1",
+              "claimText": "The Great Wall of China cannot be seen from the Moon without optical magnification.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 96
+            },
+            {
+              "id": "claim-openai-1791537232755-2",
+              "claimText": "The average width of the Great Wall is roughly 5 to 9 meters, which is too narrow for human eye resolution at 384,400 km.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 94
+            }
+          ],
+          "uncertaintyDeclared": "Low uncertainty regarding human naked-eye resolution limits from lunar orbit.",
+          "selfReportedConfidence": 95,
+          "status": "SUCCESS",
+          "latencyMs": 651,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nasa.gov/vision/space/workinginspace/great_wall.html",
+          "title": "NASA Observational Fact Sheet: Is China's Great Wall Visible from Space?",
+          "publisher": "NASA Astronautics Archive",
+          "excerpt": "The Great Wall of China is frequently billed as the only man-made structure visible from space or the Moon. However, Apollo astronauts and orbital photography confirm it is not visible from the Moon with the unaided eye because it is relatively narrow (only a few meters wide) and made of materials matching surrounding terrain.",
+          "retrievalTimestamp": "2026-10-09T09:13:55.998Z",
+          "publicationDate": "2024-05-10",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 97,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+          "title": "Great Wall of China - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "The Great Wall of China is a series of fortifications in China. They were built across the historical northern borders of ancient Chinese states and Imperial",
+          "retrievalTimestamp": "2026-10-09T09:13:56.527Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Ming_Great_Wall",
+          "title": "Ming Great Wall - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "Ming Great Wall (Chinese: 明長城; pinyin: Míng Chángchéng), built by the Ming dynasty (1368–1644), forms the most visible parts of the Great Wall of China today",
+          "retrievalTimestamp": "2026-10-09T09:13:56.527Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-openai-1791537232755-1",
+          "claimText": "The Great Wall of China cannot be seen from the Moon without optical magnification.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-wiki-2",
+            "src-wiki-3"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 96,
+          "rationale": "Corroborated by 3 independent sources with high authority."
+        },
+        {
+          "id": "claim-openai-1791537232755-2",
+          "claimText": "The average width of the Great Wall is roughly 5 to 9 meters, which is too narrow for human eye resolution at 384,400 km.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 94,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 79,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:13:56.530Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 80,
+            "domainAuthorityAverage": 84,
+            "corroborationFactor": 75,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 3 accessible sources (average domain authority: 84/100, claim support ratio: 75%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 95,
+            "agreementRatio": 0.95,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 95/100. Agreement ratio: 95%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (80), Consistency (95), Calibration (87)."
+      },
+      "reviewIterations": 0,
+      "events": [
+        {
+          "id": "evt-1791537232103-1",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:52.103Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791537232103-2",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:52.103Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791537232103-3",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:52.103Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791537235997-4",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:55.997Z",
+          "durationMs": 3894,
+          "details": {
+            "message": "Candidate agents executed in 3894ms",
+            "successfulAgents": [
+              "openai_agent"
+            ],
+            "failedAgents": [
+              "gemini_agent"
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537235997-5",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:55.997Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791537236527-6",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:56.527Z",
+          "durationMs": 530,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791537236528-7",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:56.528Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791537236528-8",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:56.528Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluated 2 claims; found 0 contradictions",
+            "agreementRatio": 0.85,
+            "disagreementCount": 0,
+            "supportedClaims": 1
+          }
+        },
+        {
+          "id": "evt-1791537236530-9",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:56.530Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791537236530-10",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:56.530Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Trust score synthesized: 79/100 (FULL coverage: 100%)",
+            "overallScore": 79,
+            "historicalScore": 69,
+            "evidenceScore": 80,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791537236531-11",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:13:56.531Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791537236531-12",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:56.531Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Decision finalized as ACCEPTED",
+            "decisionStatus": "ACCEPTED",
+            "unresolvedIssues": []
+          }
+        },
+        {
+          "id": "evt-1791537236532-13",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:56.532Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791537248605-14",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:08.605Z",
+          "durationMs": 12073,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791537248606-15",
+          "runId": "run-1791537232103-m7kjt",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:14:08.606Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "ACCEPTED",
+            "overallTrustScore": 79
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:13:52.103Z",
+      "completedAt": "2026-10-09T09:14:08.606Z",
+      "totalLatencyMs": 16503
+    },
+    {
+      "id": "run-1791537211355-t41ix",
+      "questionId": "q-1791537211355-q6lke",
+      "question": "What is the difference between supervised and unsupervised learning?",
+      "status": "COMPLETED",
+      "decisionStatus": "ACCEPTED",
+      "decisionRationale": "Verified according to configured trust policy. Trust score: 76/100 exceeds threshold (70), 100% of claims corroborated by authoritative evidence, with zero unresolved contradictions.",
+      "finalAnswer": "The primary difference between supervised and unsupervised learning centers on the presence and use of labeled data during training:\n\n* **Supervised Learning:** Requires ground-truth target labels to train models [Source 1]. \n* **Unsupervised Learning:** Operates without target labels, instead inferring inherent structure from the data, such as clusters or density representations [Source 1, Source 2, Source 3].",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "",
+          "claims": [],
+          "uncertaintyDeclared": "High (Execution Error)",
+          "selfReportedConfidence": 0,
+          "status": "FAILED",
+          "latencyMs": 8853,
+          "error": "{\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}}"
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "The fundamental difference between supervised and unsupervised learning lies in the presence of target labels. In supervised learning, algorithms are provided with input features paired with ground-truth output labels (e.g., classification, regression). In unsupervised learning, the model receives only unlabeled data and must uncover underlying data distributions, clusters, or latent dimensionality independently.",
+          "claims": [
+            {
+              "id": "claim-openai-1791537212008-1",
+              "claimText": "Supervised learning requires ground-truth target labels for training.",
+              "category": "definition",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 97
+            },
+            {
+              "id": "claim-openai-1791537212008-2",
+              "claimText": "Unsupervised learning infers structure such as clusters or density representations without target labels.",
+              "category": "definition",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 96
+            }
+          ],
+          "uncertaintyDeclared": "Definitional standards in computer science are unambiguous.",
+          "selfReportedConfidence": 97,
+          "status": "SUCCESS",
+          "latencyMs": 651,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/itl/applied-cybersecurity/ai-standards-supervised-unsupervised",
+          "title": "NIST Artificial Intelligence Fundamentals: Supervised vs Unsupervised Learning",
+          "publisher": "National Institute of Standards and Technology",
+          "excerpt": "Supervised learning trains models on labeled input-output pairs to infer mapping functions (classification, regression). Unsupervised learning identifies latent patterns, clustering structures, or density representations in unlabeled datasets without explicit target labels.",
+          "retrievalTimestamp": "2026-10-09T09:13:40.213Z",
+          "publicationDate": "2025-03-01",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 95,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Unsupervised_learning",
+          "title": "Unsupervised learning - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "Unsupervised learning is a framework in machine learning where, in contrast to supervised learning, algorithms learn patterns exclusively from unlabeled",
+          "retrievalTimestamp": "2026-10-09T09:13:40.684Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Representation_learning",
+          "title": "Representation learning - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "explicit algorithms. Feature learning can be either supervised, unsupervised, or self-supervised: In supervised feature learning, features are learned using",
+          "retrievalTimestamp": "2026-10-09T09:13:40.684Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-openai-1791537212008-1",
+          "claimText": "Supervised learning requires ground-truth target labels for training.",
+          "category": "definition",
+          "agentId": "openai_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 97,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        },
+        {
+          "id": "claim-openai-1791537212008-2",
+          "claimText": "Unsupervised learning infers structure such as clusters or density representations without target labels.",
+          "category": "definition",
+          "agentId": "openai_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 96,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 76,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:13:40.688Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 69,
+            "domainAuthorityAverage": 84,
+            "corroborationFactor": 50,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 3 accessible sources (average domain authority: 84/100, claim support ratio: 50%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 95,
+            "agreementRatio": 0.95,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 95/100. Agreement ratio: 95%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (69), Consistency (95), Calibration (87)."
+      },
+      "reviewIterations": 0,
+      "events": [
+        {
+          "id": "evt-1791537211356-1",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:31.356Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791537211356-2",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:31.356Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791537211356-3",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:31.356Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791537220209-4",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:40.209Z",
+          "durationMs": 8853,
+          "details": {
+            "message": "Candidate agents executed in 8853ms",
+            "successfulAgents": [
+              "openai_agent"
+            ],
+            "failedAgents": [
+              "gemini_agent"
+            ]
+          }
+        },
+        {
+          "id": "evt-1791537220211-5",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:40.211Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791537220684-6",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:40.684Z",
+          "durationMs": 473,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791537220685-7",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:40.685Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791537220686-8",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:40.686Z",
+          "durationMs": 1,
+          "details": {
+            "message": "Evaluated 2 claims; found 0 contradictions",
+            "agreementRatio": 0.85,
+            "disagreementCount": 0,
+            "supportedClaims": 0
+          }
+        },
+        {
+          "id": "evt-1791537220687-9",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:40.687Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791537220688-10",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:40.688Z",
+          "durationMs": 1,
+          "details": {
+            "message": "Trust score synthesized: 76/100 (FULL coverage: 100%)",
+            "overallScore": 76,
+            "historicalScore": 69,
+            "evidenceScore": 69,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791537220688-11",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:13:40.688Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791537220689-12",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:40.689Z",
+          "durationMs": 1,
+          "details": {
+            "message": "Decision finalized as ACCEPTED",
+            "decisionStatus": "ACCEPTED",
+            "unresolvedIssues": []
+          }
+        },
+        {
+          "id": "evt-1791537220689-13",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:13:40.689Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791537226507-14",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:46.507Z",
+          "durationMs": 5818,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791537226508-15",
+          "runId": "run-1791537211355-t41ix",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:13:46.508Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "ACCEPTED",
+            "overallTrustScore": 76
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:13:31.356Z",
+      "completedAt": "2026-10-09T09:13:46.508Z",
+      "totalLatencyMs": 15152
+    },
+    {
+      "id": "test-run-1791536839538",
+      "questionId": "q-test-1",
+      "question": "What is the speed of light in a vacuum in m/s?",
+      "status": "COMPLETED",
+      "decisionStatus": "ACCEPTED",
+      "decisionRationale": "Verified according to configured trust policy. Trust score: 77/100 exceeds threshold (70), 83% of claims corroborated by authoritative evidence, with zero unresolved contradictions.",
+      "finalAnswer": "The speed of light in a vacuum is exactly **299,792,458 meters per second** [Source 1, Source 2].\n\n### Definitional and Physical Context\n* **SI Definition:** In 1983, the 17th General Conference on Weights and Measures (CGPM) defined the speed of light as an exact constant [Source 2]. Within the International System of Units (SI), the meter is explicitly defined as the distance light travels in a vacuum over a time interval of 1/299,792,458 of a second [Source 1, Source 2].\n* **Relativistic Role:** Denoted as the universal physical constant $c$, it serves as the invariant upper speed limit for causality and information propagation in relativistic physics [Source 2, Source 3].\n* **Empirical Boundary:** Determining and establishing the value of this universal constant addresses fundamental empirical boundary analyses within modern physical measurements [Source 1].",
+      "answerAgents": [
+        {
+          "agentId": "gemini_agent",
+          "provider": "Google GenAI",
+          "model": "gemini-3.8-flash",
+          "answerText": "The speed of light in a vacuum is exactly 299,792,458 meters per second (m/s), universally denoted by the physical constant c. This value is an exact, integer constant with zero experimental uncertainty within the International System of Units (SI).\n\nIn 1983, the 17th General Conference on Weights and Measures (CGPM) established this fixed quantity by redefining the meter. Under this framework, the meter is defined as the length of the path travelled by light in a vacuum during a time interval of 1/299,792,458 of a second. Consequently, any empirical advancement in interferometry or laser measurement refines the physical length of the meter rather than altering the numerical value of c.\n\nIn theoretical physics, this invariant speed serves as a cornerstone of Albert Einstein's special and general theories of relativity. It is not merely the velocity at which electromagnetic radiation propagates, but the fundamental upper speed limit for the transmission of information, matter, and causal influence across spacetime.",
+          "claims": [
+            {
+              "id": "claim-gemini-1791536851128-1",
+              "claimText": "The speed of light in a vacuum is exactly 299,792,458 meters per second.",
+              "category": "definition",
+              "agentId": "gemini_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 100
+            },
+            {
+              "id": "claim-gemini-1791536851128-2",
+              "claimText": "The 17th General Conference on Weights and Measures (CGPM) defined the value of the speed of light as exact in 1983.",
+              "category": "factual",
+              "agentId": "gemini_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 100
+            },
+            {
+              "id": "claim-gemini-1791536851128-3",
+              "claimText": "Within the SI system, the meter is defined as the distance light travels in a vacuum in 1/299,792,458 of a second.",
+              "category": "definition",
+              "agentId": "gemini_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 100
+            },
+            {
+              "id": "claim-gemini-1791536851128-4",
+              "claimText": "The constant c represents the invariant speed limit for information propagation and causality in relativistic physics.",
+              "category": "factual",
+              "agentId": "gemini_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 100
+            }
+          ],
+          "uncertaintyDeclared": "There is zero epistemic uncertainty regarding the numerical value within the SI framework, as it is an exact operational definition. Physical caveats apply solely to boundary conditions: the speed is lower in physical media possessing a non-unity refractive index, and effective velocity can be affected in non-inertial frames or curved spacetime under General Relativity coordinate descriptions.",
+          "selfReportedConfidence": 100,
+          "status": "SUCCESS",
+          "latencyMs": 11589,
+          "tokenUsage": {
+            "promptTokens": 190,
+            "completionTokens": 553,
+            "totalTokens": 1391
+          },
+          "estimatedCostUsd": 0.00008,
+          "isTestDouble": false
+        },
+        {
+          "agentId": "openai_agent",
+          "provider": "OpenAI (Deterministic Test Double)",
+          "model": "gpt-4o-test-double",
+          "answerText": "Analyzing the inquiry: \"What is the speed of light in a vacuum in m/s?\". From established empirical principles, rigorous answer formulation requires separating direct observations from deductive extrapolation. Primary factors include verified boundary conditions, observational reproducibility, and documented experimental constraints.",
+          "claims": [
+            {
+              "id": "claim-openai-1791536840191-1",
+              "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+              "category": "factual",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 80
+            },
+            {
+              "id": "claim-openai-1791536840191-2",
+              "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+              "category": "assumption",
+              "agentId": "openai_agent",
+              "verificationStatus": "UNVERIFIED",
+              "supportingEvidenceIds": [],
+              "contradictingEvidenceIds": [],
+              "confidence": 85
+            }
+          ],
+          "uncertaintyDeclared": "Empirical verification requires matching claims against retrieved primary literature.",
+          "selfReportedConfidence": 80,
+          "status": "SUCCESS",
+          "latencyMs": 652,
+          "tokenUsage": {
+            "promptTokens": 245,
+            "completionTokens": 290,
+            "totalTokens": 535
+          },
+          "estimatedCostUsd": 0,
+          "isTestDouble": true
+        }
+      ],
+      "evidenceSources": [
+        {
+          "id": "src-curated-1",
+          "url": "https://www.nist.gov/pml/weights-and-measures/metric-si/si-units-speed-light",
+          "title": "NIST Physics Reference: Speed of Light in Vacuum Constant (c)",
+          "publisher": "NIST PML Fundamental Physical Constants",
+          "excerpt": "The speed of light in vacuum, denoted as c, is an exact universal physical constant defined as 299,792,458 metres per second (m/s). It forms the foundational basis for the SI definition of the metre.",
+          "retrievalTimestamp": "2026-10-09T09:07:31.130Z",
+          "publicationDate": "2024-11-20",
+          "provider": "curated_benchmark",
+          "isAccessible": true,
+          "domainAuthority": 96,
+          "reliabilityScore": 99,
+          "reliabilityRationale": "Verified primary archive source with high institutional authority (96/100) and direct domain relevance.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-2",
+          "url": "https://en.wikipedia.org/wiki/Speed_of_light",
+          "title": "Speed of light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "materials like glass or water; its highest speed is in a vacuum. The speed of light in vacuum is a universal physical constant denoted c (in ISO and IEC",
+          "retrievalTimestamp": "2026-10-09T09:07:31.586Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        },
+        {
+          "id": "src-wiki-3",
+          "url": "https://en.wikipedia.org/wiki/Faster-than-light",
+          "title": "Faster-than-light - Wikipedia Entry",
+          "publisher": "Wikipedia Encyclopedia",
+          "excerpt": "in vacuum (c). The special theory of relativity implies that only particles with zero rest mass (i.e., photons) may travel at the speed of light, and",
+          "retrievalTimestamp": "2026-10-09T09:07:31.586Z",
+          "provider": "web_search",
+          "isAccessible": true,
+          "domainAuthority": 78,
+          "reliabilityScore": 75,
+          "reliabilityRationale": "Open collaborative encyclopedia. Good general background, but requires primary source verification.",
+          "relevantClaimIds": [],
+          "ssrfSafe": true
+        }
+      ],
+      "claimEvaluations": [
+        {
+          "id": "claim-gemini-1791536851128-1",
+          "claimText": "The speed of light in a vacuum is exactly 299,792,458 meters per second.",
+          "category": "definition",
+          "agentId": "gemini_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-wiki-2",
+            "src-wiki-3"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 100,
+          "rationale": "Corroborated by 3 independent sources with high authority."
+        },
+        {
+          "id": "claim-gemini-1791536851128-2",
+          "claimText": "The 17th General Conference on Weights and Measures (CGPM) defined the value of the speed of light as exact in 1983.",
+          "category": "factual",
+          "agentId": "gemini_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 100,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        },
+        {
+          "id": "claim-gemini-1791536851128-3",
+          "claimText": "Within the SI system, the meter is defined as the distance light travels in a vacuum in 1/299,792,458 of a second.",
+          "category": "definition",
+          "agentId": "gemini_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 100,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        },
+        {
+          "id": "claim-gemini-1791536851128-4",
+          "claimText": "The constant c represents the invariant speed limit for information propagation and causality in relativistic physics.",
+          "category": "factual",
+          "agentId": "gemini_agent",
+          "verificationStatus": "PARTIALLY_SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 100,
+          "rationale": "Supported by one accessible source; awaiting broader multi-source corroboration."
+        },
+        {
+          "id": "claim-openai-1791536840191-1",
+          "claimText": "The question \"What is the speed of light in a vacuum in m/s?\" addresses a topic requiring empirical boundary analysis.",
+          "category": "factual",
+          "agentId": "openai_agent",
+          "verificationStatus": "SUPPORTED",
+          "supportingEvidenceIds": [
+            "src-curated-1",
+            "src-wiki-2",
+            "src-wiki-3"
+          ],
+          "contradictingEvidenceIds": [],
+          "confidence": 80,
+          "rationale": "Corroborated by 3 independent sources with high authority."
+        },
+        {
+          "id": "claim-openai-1791536840191-2",
+          "claimText": "Verifiable conclusions depend on peer-reviewed domain evidence and contextual definitions.",
+          "category": "assumption",
+          "agentId": "openai_agent",
+          "verificationStatus": "UNVERIFIED",
+          "supportingEvidenceIds": [],
+          "contradictingEvidenceIds": [],
+          "confidence": 85,
+          "rationale": "No direct corroborating evidence discovered in retrieved records."
+        }
+      ],
+      "disagreements": [],
+      "trustScore": {
+        "overallScore": 77,
+        "normalizedCoverage": 1,
+        "measurementStatus": "FULL",
+        "calculationVersion": "v2.1-bayesian-4d",
+        "timestamp": "2026-10-09T09:07:31.589Z",
+        "dimensions": {
+          "historicalAccuracy": {
+            "weight": 0.4,
+            "rawScore": 69,
+            "sampleSize": 9,
+            "priorAlpha": 2,
+            "priorBeta": 2,
+            "observedCorrect": 7,
+            "observedIncorrect": 2,
+            "posteriorMean": 0.6923,
+            "credibleInterval95": [
+              0.4505,
+              0.9341
+            ],
+            "status": "MEASURED",
+            "explanation": "Empirically measured from 9 verified independent evaluation records (7 correct, 2 incorrect). 95% Bayesian credible interval: [45%, 93%]."
+          },
+          "evidenceQuality": {
+            "weight": 0.3,
+            "rawScore": 72,
+            "domainAuthorityAverage": 84,
+            "corroborationFactor": 58,
+            "contradictionDeduction": 0,
+            "status": "MEASURED",
+            "explanation": "Synthesized from 3 accessible sources (average domain authority: 84/100, claim support ratio: 58%, contradiction penalty: -0)."
+          },
+          "consistency": {
+            "weight": 0.2,
+            "rawScore": 95,
+            "agreementRatio": 0.95,
+            "contradictionPenalty": 0,
+            "consensusIndependenceScore": 100,
+            "status": "MEASURED",
+            "explanation": "Cross-agent consistency score: 95/100. Agreement ratio: 95%, detected contradictions penalty: -0pts, consensus independence factor: 100/100."
+          },
+          "uncertaintyCalibration": {
+            "weight": 0.1,
+            "rawScore": 87,
+            "brierScore": 0.1346,
+            "status": "CALIBRATED",
+            "explanation": "Calculated over 9 verified predictions. Empirical Brier Score: 0.135 (ideal=0.0). Calibrated score: 87/100."
+          }
+        },
+        "appliedWeights": {
+          "historical": 0.4,
+          "evidence": 0.3,
+          "consistency": 0.2,
+          "calibration": 0.1
+        },
+        "rationale": "Normalized trust index computed via Bayesian 4D Kernel (FULL coverage: 100.0%). Dimension contributions: Historical (69), Evidence (72), Consistency (95), Calibration (87)."
+      },
+      "reviewIterations": 0,
+      "events": [
+        {
+          "id": "evt-1791536839539-1",
+          "runId": "test-run-1791536839538",
+          "stage": "initialize",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:19.539Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Initialized typed shared state graph"
+          }
+        },
+        {
+          "id": "evt-1791536839539-2",
+          "runId": "test-run-1791536839538",
+          "stage": "initialize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:19.539Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Input validated"
+          }
+        },
+        {
+          "id": "evt-1791536839539-3",
+          "runId": "test-run-1791536839538",
+          "stage": "parallel_agents",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:19.539Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Dispatching Gemini and OpenAI answer agents concurrently"
+          }
+        },
+        {
+          "id": "evt-1791536851128-4",
+          "runId": "test-run-1791536839538",
+          "stage": "parallel_agents",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:31.128Z",
+          "durationMs": 11589,
+          "details": {
+            "message": "Candidate agents executed in 11589ms",
+            "successfulAgents": [
+              "gemini_agent",
+              "openai_agent"
+            ],
+            "failedAgents": []
+          }
+        },
+        {
+          "id": "evt-1791536851129-5",
+          "runId": "test-run-1791536839538",
+          "stage": "evidence_retrieval",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:31.129Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Retrieving evidence sources with SSRF validation"
+          }
+        },
+        {
+          "id": "evt-1791536851586-6",
+          "runId": "test-run-1791536839538",
+          "stage": "evidence_retrieval",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:31.587Z",
+          "durationMs": 457,
+          "details": {
+            "message": "Retrieved 3 sources (3 accessible)",
+            "sourceCount": 3
+          }
+        },
+        {
+          "id": "evt-1791536851587-7",
+          "runId": "test-run-1791536839538",
+          "stage": "consistency_and_claims",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:31.587Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating cross-claim consistency and evidence support"
+          }
+        },
+        {
+          "id": "evt-1791536851588-8",
+          "runId": "test-run-1791536839538",
+          "stage": "consistency_and_claims",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:31.588Z",
+          "durationMs": 1,
+          "details": {
+            "message": "Evaluated 6 claims; found 0 contradictions",
+            "agreementRatio": 0.125,
+            "disagreementCount": 0,
+            "supportedClaims": 2
+          }
+        },
+        {
+          "id": "evt-1791536851589-9",
+          "runId": "test-run-1791536839538",
+          "stage": "trust_scoring",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:31.589Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing Beta-Binomial posterior and 4D trust decomposition"
+          }
+        },
+        {
+          "id": "evt-1791536851589-10",
+          "runId": "test-run-1791536839538",
+          "stage": "trust_scoring",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:31.589Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Trust score synthesized: 77/100 (FULL coverage: 100%)",
+            "overallScore": 77,
+            "historicalScore": 69,
+            "evidenceScore": 72,
+            "consistencyScore": 95,
+            "calibrationScore": 87
+          }
+        },
+        {
+          "id": "evt-1791536851590-11",
+          "runId": "test-run-1791536839538",
+          "stage": "decision_routing",
+          "eventType": "ROUTING",
+          "timestamp": "2026-10-09T09:07:31.590Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Evaluating policy invariants for ACCEPTED, NEEDS_REVIEW, or ABSTAINED"
+          }
+        },
+        {
+          "id": "evt-1791536851590-12",
+          "runId": "test-run-1791536839538",
+          "stage": "decision_routing",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:31.590Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Decision finalized as ACCEPTED",
+            "decisionStatus": "ACCEPTED",
+            "unresolvedIssues": []
+          }
+        },
+        {
+          "id": "evt-1791536851590-13",
+          "runId": "test-run-1791536839538",
+          "stage": "final_synthesis",
+          "eventType": "START",
+          "timestamp": "2026-10-09T09:07:31.590Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Synthesizing evidence-grounded final answer"
+          }
+        },
+        {
+          "id": "evt-1791536861607-14",
+          "runId": "test-run-1791536839538",
+          "stage": "final_synthesis",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:41.607Z",
+          "durationMs": 10017,
+          "details": {
+            "message": "Final answer synthesized with citations and caveats"
+          }
+        },
+        {
+          "id": "evt-1791536861607-15",
+          "runId": "test-run-1791536839538",
+          "stage": "finalize",
+          "eventType": "COMPLETE",
+          "timestamp": "2026-10-09T09:07:41.607Z",
+          "durationMs": 0,
+          "details": {
+            "message": "Workflow completed successfully",
+            "decisionStatus": "ACCEPTED",
+            "overallTrustScore": 77
+          }
+        }
+      ],
+      "createdAt": "2026-10-09T09:07:19.538Z",
+      "completedAt": "2026-10-09T09:07:41.607Z",
+      "totalLatencyMs": 22069
+    }
+  ],
+  "verifiedOutcomes": [
+    {
+      "id": "vo-g-1",
+      "agentId": "gemini_agent",
+      "question": "Does the Great Wall of China appear visible from the Moon with the unaided eye?",
+      "prediction": "No, it is not visible from the Moon with the naked eye.",
+      "groundTruth": "No. Apollo astronauts and NASA have confirmed it is not visible from the Moon.",
+      "isCorrect": true,
+      "verificationSource": "NASA Astronautics Archive",
+      "verificationTimestamp": "2026-09-10T12:00:00Z",
+      "datasetVersion": "v1.0-science",
+      "methodology": "Expert peer review",
+      "statedConfidence": 95
+    },
+    {
+      "id": "vo-g-2",
+      "agentId": "gemini_agent",
+      "question": "Do childhood vaccines cause autism?",
+      "prediction": "No, extensive scientific studies have found no causal link.",
+      "groundTruth": "No causal relationship exists; CDC, WHO, and Institute of Medicine studies refute this.",
+      "isCorrect": true,
+      "verificationSource": "CDC & WHO Medical Consensus",
+      "verificationTimestamp": "2026-09-12T14:30:00Z",
+      "datasetVersion": "v1.0-health",
+      "methodology": "Systematic literature review",
+      "statedConfidence": 98
+    },
+    {
+      "id": "vo-g-3",
+      "agentId": "gemini_agent",
+      "question": "What is the speed of light in a vacuum in m/s?",
+      "prediction": "299,792,458 m/s",
+      "groundTruth": "299,792,458 m/s exactly",
+      "isCorrect": true,
+      "verificationSource": "BIPM SI Units Standard",
+      "verificationTimestamp": "2026-09-15T09:15:00Z",
+      "datasetVersion": "v1.0-physics",
+      "methodology": "Physical constant reference",
+      "statedConfidence": 99
+    },
+    {
+      "id": "vo-g-4",
+      "agentId": "gemini_agent",
+      "question": "Who was the 47th President of the United States inaugurated in January 2025?",
+      "prediction": "Donald Trump",
+      "groundTruth": "Donald Trump",
+      "isCorrect": true,
+      "verificationSource": "US National Archives",
+      "verificationTimestamp": "2026-09-20T11:00:00Z",
+      "datasetVersion": "v1.0-history",
+      "methodology": "Official government record",
+      "statedConfidence": 95
+    },
+    {
+      "id": "vo-g-5",
+      "agentId": "gemini_agent",
+      "question": "Does eating sugar cause hyperactivity (ADHD) in children according to double-blind trials?",
+      "prediction": "Yes, sugar directly causes hyperactivity in all children.",
+      "groundTruth": "No, randomized double-blind trials (Hoover et al., Wolraich et al.) found no cognitive effect.",
+      "isCorrect": false,
+      "verificationSource": "New England Journal of Medicine Meta-analysis",
+      "verificationTimestamp": "2026-09-25T16:00:00Z",
+      "datasetVersion": "v1.0-health",
+      "methodology": "Double-blind clinical review",
+      "statedConfidence": 75
+    },
+    {
+      "id": "vo-o-1",
+      "agentId": "openai_agent",
+      "question": "Does the Great Wall of China appear visible from the Moon with the unaided eye?",
+      "prediction": "No, that is a common myth; it is far too narrow.",
+      "groundTruth": "No. Confirmed not visible from lunar orbit.",
+      "isCorrect": true,
+      "verificationSource": "NASA Astronautics Archive",
+      "verificationTimestamp": "2026-09-10T12:00:00Z",
+      "datasetVersion": "v1.0-science",
+      "methodology": "Expert peer review",
+      "statedConfidence": 95
+    },
+    {
+      "id": "vo-o-2",
+      "agentId": "openai_agent",
+      "question": "Do childhood vaccines cause autism?",
+      "prediction": "No, scientific consensus shows no causal link.",
+      "groundTruth": "No causal relationship exists.",
+      "isCorrect": true,
+      "verificationSource": "CDC & WHO Medical Consensus",
+      "verificationTimestamp": "2026-09-12T14:30:00Z",
+      "datasetVersion": "v1.0-health",
+      "methodology": "Systematic literature review",
+      "statedConfidence": 98
+    },
+    {
+      "id": "vo-o-3",
+      "agentId": "openai_agent",
+      "question": "Can humans use only 10% of their brain capacity?",
+      "prediction": "Humans use approximately 10% of their brain simultaneously.",
+      "groundTruth": "Myth. Neuroimaging shows almost all areas of the brain have active functions throughout the day.",
+      "isCorrect": false,
+      "verificationSource": "Society for Neuroscience",
+      "verificationTimestamp": "2026-09-18T10:00:00Z",
+      "datasetVersion": "v1.0-neuro",
+      "methodology": "fMRI and clinical neurology literature",
+      "statedConfidence": 80
+    },
+    {
+      "id": "vo-o-4",
+      "agentId": "openai_agent",
+      "question": "What is the boiling point of pure water at 1 atm?",
+      "prediction": "100 degrees Celsius",
+      "groundTruth": "100 degrees Celsius (99.974 °C on ITS-90 scale)",
+      "isCorrect": true,
+      "verificationSource": "NIST Chemistry WebBook",
+      "verificationTimestamp": "2026-09-21T08:00:00Z",
+      "datasetVersion": "v1.0-physics",
+      "methodology": "Standard reference data",
+      "statedConfidence": 99
+    }
+  ],
+  "trustScoreHistory": [],
+  "benchmarkReports": []
+}

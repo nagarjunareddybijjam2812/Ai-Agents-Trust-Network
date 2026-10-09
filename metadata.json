@@ -1,0 +1,6 @@
+{
+  "name": "AI Trust Architecture",
+  "description": "Multi-agent AI answer verification and reliability platform with claim evaluation, evidence provenance, and calibrated trust scoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
